@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>尤译庆 | 嵌入式开发实习生项目集</title>
+    <meta
+      name="description"
+      content="尤译庆的嵌入式开发实习生项目作品集，包含项目演示视频与报告文档。"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="主导航">
+        <a class="brand" href="#top" aria-label="返回首页">
+          <span class="brand-mark">Y</span>
+          <span>尤译庆</span>
+        </a>
+        <div class="nav-links">
+          <a href="#projects">项目</a>
+          <a href="#contact">联系</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="hero-inner">
+          <p class="eyebrow">Embedded Systems Portfolio</p>
+          <h1>项目</h1>
+          <p class="hero-copy">
+            尤译庆 · 嵌入式开发实习生方向。这里集中展示硬件控制、视觉处理、目标追踪与低延迟无线外设相关项目，
+            HR 可直接查看演示视频与项目报告。
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#projects">查看项目</a>
+            <a class="button secondary" href="assets/reports/binocular-vision-report.pdf" target="_blank" rel="noreferrer">
+              查看代表报告
+            </a>
+          </div>
+          <div class="stats" aria-label="作品集概览">
+            <div>
+              <strong>4</strong>
+              <span>个项目</span>
+            </div>
+            <div>
+              <strong>2</strong>
+              <span>个演示视频</span>
+            </div>
+            <div>
+              <strong>3</strong>
+              <span>份报告</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section intro" aria-label="求职方向">
+        <div class="section-heading">
+          <p class="eyebrow">Target Role</p>
+          <h2>嵌入式开发实习生</h2>
+        </div>
+        <p>
+          关注 MCU/FPGA、传感器数据处理、运动控制、视觉算法落地与软硬件联调。以下项目按作品完成度整理，
+          便于快速了解实践内容、负责模块和可查看材料。
+        </p>
+      </section>
+
+      <section id="projects" class="section projects">
+        <div class="section-heading">
+          <p class="eyebrow">Selected Work</p>
+          <h2>项目展示</h2>
+        </div>
+
+        <article class="project featured">
+          <div class="media-panel">
+            <video controls preload="metadata" poster="" aria-label="双目视觉处理系统演示视频">
+              <source src="assets/videos/binocular-vision.mp4" type="video/mp4" />
+              当前浏览器不支持视频播放，请下载视频文件查看。
+            </video>
+          </div>
+          <div class="project-content">
+            <span class="tag">FPGA · 双目视觉</span>
+            <h3>双目视觉处理系统</h3>
+            <p>
+              围绕双目图像采集、处理与结果输出构建的视觉处理系统，重点体现图像链路处理、硬件平台验证和报告整理能力。
+            </p>
+            <div class="project-actions">
+              <a class="button primary" href="assets/videos/binocular-vision.mp4" target="_blank" rel="noreferrer">观看视频</a>
+              <a class="button secondary" href="assets/reports/binocular-vision-report.pdf" target="_blank" rel="noreferrer">查看报告</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="media-panel">
+            <video controls preload="metadata" aria-label="CH585 三模无线鼠标演示视频">
+              <source src="assets/videos/ch585-mouse.mp4" type="video/mp4" />
+              当前浏览器不支持视频播放，请下载视频文件查看。
+            </video>
+          </div>
+          <div class="project-content">
+            <span class="tag">CH585 · 三模无线 · 低延迟</span>
+            <h3>基于 CH585 的电竞级高性能超低延迟三模无线鼠标</h3>
+            <p>
+              基于 CH585 平台探索无线外设低延迟通信、模式切换与嵌入式固件实现，突出外设产品化和调试验证思路。
+            </p>
+            <div class="project-actions">
+              <a class="button primary" href="assets/videos/ch585-mouse.mp4" target="_blank" rel="noreferrer">观看视频</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="placeholder-panel">
+            <span>REPORT</span>
+          </div>
+          <div class="project-content">
+            <span class="tag">控制系统 · 自瞄装置</span>
+            <h3>简易自行瞄准装置</h3>
+            <p>
+              通过目标识别、执行机构控制与系统调试完成自动瞄准功能验证，报告中记录了方案设计、实现过程与测试结果。
+            </p>
+            <div class="project-actions">
+              <a class="button secondary" href="assets/reports/auto-aim-device-report.pdf" target="_blank" rel="noreferrer">查看报告</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="placeholder-panel tracking">
+            <span>TRACKING</span>
+          </div>
+          <div class="project-content">
+            <span class="tag">运动控制 · 目标追踪</span>
+            <h3>运动目标控制与自动追踪系统</h3>
+            <p>
+              面向运动目标检测与自动追踪场景，完成系统方案、控制流程与实验验证，体现综合设计和团队项目交付能力。
+            </p>
+            <div class="project-actions">
+              <a class="button secondary" href="assets/reports/moving-target-tracking-report.pdf" target="_blank" rel="noreferrer">查看报告</a>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section id="contact" class="section contact">
+        <div class="section-heading">
+          <p class="eyebrow">Contact</p>
+          <h2>联系与说明</h2>
+        </div>
+        <p>
+          如需进一步了解项目细节，可结合页面中的演示视频和 PDF 报告查看。后续可继续补充个人邮箱、电话、学校、专业和简历链接。
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
