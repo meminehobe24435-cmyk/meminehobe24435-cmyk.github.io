@@ -82,7 +82,7 @@ a {
 }
 
 .nav-links a {
-  min-width: 56px;
+  min-width: 48px;
   padding: 8px 10px;
   border: 1px solid transparent;
   color: var(--muted);
@@ -255,6 +255,45 @@ h3 {
   gap: 20px;
 }
 
+.skills {
+  border-top: 1px solid var(--line);
+}
+
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.skill-grid article,
+.award-card {
+  border: 1px solid var(--line);
+  background: rgba(16, 19, 24, 0.82);
+}
+
+.skill-grid article {
+  min-height: 250px;
+  padding: 24px;
+}
+
+.skill-grid span,
+.award-card span,
+.cert-strip span {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--green);
+  font: 700 0.78rem/1.3 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.skill-grid p {
+  margin-bottom: 12px;
+  color: var(--muted);
+}
+
+.skill-grid p:last-child {
+  margin-bottom: 0;
+}
+
 .section-heading {
   margin-bottom: 10px;
 }
@@ -337,6 +376,57 @@ h3 {
   border-top: 1px solid var(--line);
 }
 
+.awards {
+  border-top: 1px solid var(--line);
+}
+
+.award-board {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.award-card {
+  min-height: 220px;
+  padding: 22px;
+}
+
+.award-card.highlight {
+  border-color: rgba(51, 215, 255, 0.42);
+  background:
+    linear-gradient(135deg, rgba(51, 215, 255, 0.12), transparent 60%),
+    rgba(16, 19, 24, 0.88);
+}
+
+.award-card h3 {
+  font-size: 1.12rem;
+}
+
+.award-card p {
+  color: var(--muted);
+}
+
+.cert-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+  border: 1px solid var(--line);
+  padding: 18px 22px;
+  background: rgba(16, 19, 24, 0.82);
+}
+
+.cert-strip span {
+  margin: 0 8px 0 0;
+}
+
+.cert-strip strong {
+  border: 1px solid rgba(255, 180, 67, 0.4);
+  padding: 8px 12px;
+  color: var(--text);
+}
+
 .contact-list {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -399,6 +489,8 @@ h3 {
   .stats,
   .intro,
   .project,
+  .skill-grid,
+  .award-board,
   .contact-list {
     grid-template-columns: 1fr;
   }
