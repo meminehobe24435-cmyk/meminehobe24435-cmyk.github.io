@@ -1,282 +1,844 @@
 <!doctype html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>尤译庆 | 嵌入式开发实习生项目集</title>
-    <meta
-      name="description"
-      content="尤译庆的嵌入式开发实习生项目作品集，包含项目演示视频与报告文档。"
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <header class="site-header">
-      <nav class="nav" aria-label="主导航">
-        <a class="brand" href="#top" aria-label="返回首页">
-          <span class="brand-mark">Y</span>
-          <span>尤译庆</span>
-        </a>
-        <div class="nav-links">
-          <a href="#skills">技能</a>
-          <a href="#projects">项目</a>
-          <a href="#awards">奖项</a>
-          <a href="#contact">联系</a>
-        </div>
-      </nav>
-    </header>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>尤译庆 | 2027届本科应届生 · 嵌入式软件 / 固件开发</title>
+<meta name="description" content="尤译庆，湖北恩施学院电气工程及其自动化专业 2027届本科应届生（2027年7月毕业）。求职方向：嵌入式软件工程师 / 固件工程师 / 嵌入式测试 / 上位机软件 / FAE 应用工程师。含教育背景、专业技能、实习经历、61 个公开项目仓库与竞赛奖项。">
+<meta name="author" content="尤译庆">
+<meta name="robots" content="index, follow">
+<style>
+:root{
+  --navy:#0f2645;--navy2:#17395f;--ink:#1a2433;--muted:#5c6b7d;
+  --line:#dee5ed;--bg:#f1f4f8;--card:#ffffff;--accent:#1f63c4;--accent2:#0c7a6e;
+  --chip:#eaf1fa;--warnbg:#fff8e8;--warnline:#e8cf94;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font:16px/1.75 system-ui,-apple-system,"Segoe UI","Microsoft YaHei","Hiragino Sans GB",sans-serif;
+  -webkit-text-size-adjust:100%;
+}
+video{max-width:100%;height:auto}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:8px;top:8px;background:#fff;padding:8px 12px;z-index:99;border-radius:6px}
 
-    <main id="top">
-      <section class="hero">
-        <div class="hero-grid" aria-hidden="true"></div>
-        <div class="hero-inner">
-          <p class="eyebrow">Embedded Systems Portfolio</p>
-          <h1>项目</h1>
-          <p class="hero-copy">
-            尤译庆 · 嵌入式开发实习生方向。这里集中展示硬件控制、视觉处理、目标追踪与低延迟无线外设相关项目，
-            HR 可直接查看演示视频与项目报告。
+/* ---------- header / nav ---------- */
+.site-header{background:var(--navy);color:#fff;position:sticky;top:0;z-index:20;border-bottom:1px solid #0b1c33}
+.nav{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:12px 20px;max-width:1080px;margin:0 auto}
+.brand{display:flex;align-items:center;gap:10px;color:#fff;font-weight:700;letter-spacing:.5px}
+.brand:hover{text-decoration:none}
+.brand-mark{display:inline-flex;width:30px;height:30px;align-items:center;justify-content:center;
+  background:#2f7ae0;border-radius:8px;font-weight:800;font-size:15px}
+.nav-links{display:flex;flex-wrap:wrap;gap:4px 16px;margin-left:auto;font-size:14px}
+.nav-links a{color:#c6d6ea;padding:2px 0;border-bottom:2px solid transparent}
+.nav-links a:hover{color:#fff;border-bottom-color:#2f7ae0;text-decoration:none}
+
+/* ---------- hero ---------- */
+.hero{background:linear-gradient(160deg,#0f2645 0%,#17395f 55%,#1d4a78 100%);color:#fff;padding:52px 0 44px}
+.eyebrow{font-size:12.5px;letter-spacing:2.6px;color:#9dbde3;margin:0 0 12px;text-transform:uppercase}
+.hero h1{font-size:44px;line-height:1.16;margin:0 0 6px;letter-spacing:1px}
+.hero h1 small{display:block;font-size:16px;font-weight:400;letter-spacing:3px;color:#a9c6e8;margin-top:10px}
+.hero .positioning{font-size:21px;font-weight:600;margin:16px 0 4px;color:#eaf2fb}
+.hero .sub{color:#c9dbef;margin:0;font-size:15.5px;max-width:760px}
+.chips{display:flex;flex-wrap:wrap;gap:9px;margin:22px 0 0;padding:0;list-style:none}
+.chips li{background:#ffffff1a;border:1px solid #ffffff2e;border-radius:999px;padding:5px 14px;font-size:14px;color:#e8f1fb}
+.chips li.key{background:#2f7ae0;border-color:#2f7ae0;font-weight:600;color:#fff}
+.hero-contact{display:flex;flex-wrap:wrap;gap:10px 14px;margin-top:26px}
+.hero-contact a,.hero-contact span{display:inline-flex;align-items:center;gap:7px;background:#ffffff14;
+  border:1px solid #ffffff26;border-radius:9px;padding:8px 14px;color:#fff;font-size:14.5px}
+.hero-contact a:hover{background:#ffffff26;text-decoration:none}
+.hero-contact b{font-weight:600}
+
+/* ---------- generic section ---------- */
+main{padding-bottom:10px}
+.sec{padding:38px 0 6px}
+.sec-head{margin:0 0 18px;border-left:4px solid var(--accent);padding-left:13px}
+.sec-head .eyebrow{color:#7b8ea4;margin-bottom:5px}
+.sec-head h2{margin:0;font-size:26px;letter-spacing:.4px}
+.sec-head p{margin:6px 0 0;color:var(--muted);font-size:14.5px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:14px}
+.card h3{margin:0 0 10px;font-size:18px}
+.card p{margin:0 0 8px}
+.card p:last-child{margin-bottom:0}
+.muted{color:var(--muted);font-size:14.5px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+
+/* ---------- definition lists ---------- */
+.dl{margin:0}
+.dl>div{display:grid;grid-template-columns:130px 1fr;gap:6px 14px;padding:9px 0;border-bottom:1px dashed var(--line)}
+.dl>div:last-child{border-bottom:0;padding-bottom:0}
+.dl dt{color:var(--muted);font-size:14.5px;font-weight:600}
+.dl dd{margin:0}
+
+/* ---------- skill cards ---------- */
+.skill{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+.skill .name{display:inline-block;font-weight:700;font-size:16px;color:var(--navy);
+  border-bottom:2px solid #cfdcec;padding-bottom:6px;margin-bottom:10px}
+.skill p{margin:0 0 10px;font-size:15px}
+.skill p:last-child{margin-bottom:0}
+.tier{display:inline-block;font-size:12px;font-weight:700;border-radius:5px;padding:1px 7px;
+  margin-right:6px;vertical-align:1px;white-space:nowrap}
+.t1{background:#e3f2e9;color:#186b45;border:1px solid #b7dfc8}
+.t2{background:#e8f0fb;color:#1b4f96;border:1px solid #c2d6f0}
+.t3{background:#f2f0f7;color:#574a86;border:1px solid #d8d2e8}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;background:#fff;border:1px solid var(--line);
+  border-radius:12px;padding:13px 18px;margin-bottom:16px;font-size:14px;color:var(--muted)}
+.legend b{color:var(--ink)}
+
+/* ---------- internship ---------- */
+.job-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 14px;margin-bottom:4px}
+.job-head h3{margin:0;font-size:19px}
+.job-head .when{color:var(--muted);font-size:14.5px}
+ul.duty{margin:10px 0 0;padding-left:20px}
+ul.duty li{margin-bottom:8px}
+ul.duty li:last-child{margin-bottom:0}
+ul.duty b{color:var(--navy)}
+
+/* ---------- featured projects ---------- */
+.project{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-bottom:18px}
+.project-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:0}
+.project.reverse .project-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.05fr)}
+.project.reverse .media-panel{order:2}
+.media-panel{background:#0d1b2e;display:flex;align-items:center;justify-content:center;min-height:230px}
+.media-panel video{display:block;width:100%;max-height:340px;background:#000}
+.ph{color:#5d7ba0;letter-spacing:3px;font-size:13px;font-weight:700;padding:60px 20px;text-align:center}
+.project-body{padding:24px 26px}
+.project-body h3{margin:8px 0 4px;font-size:20px;line-height:1.4}
+.tag{display:inline-block;background:var(--chip);color:#1b4f96;border-radius:6px;
+  padding:3px 10px;font-size:12.5px;font-weight:600;letter-spacing:.3px}
+.badge{display:inline-block;background:#fff5e2;color:#8a5a00;border:1px solid #eed9ac;
+  border-radius:6px;padding:3px 10px;font-size:12.5px;font-weight:600;margin-left:6px}
+.project-body p{margin:10px 0;font-size:15.2px}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.btn{display:inline-block;border-radius:9px;padding:9px 16px;font-size:14.5px;font-weight:600;
+  border:1px solid var(--accent);color:#fff;background:var(--accent)}
+.btn:hover{background:#1a55aa;text-decoration:none}
+.btn.ghost{background:#fff;color:var(--accent)}
+.btn.ghost:hover{background:#eef4fc}
+
+/* ---------- repo index ---------- */
+.cat{background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:20px 22px 8px;margin-bottom:16px}
+.cat h3{margin:0 0 4px;font-size:19px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.count{background:var(--chip);color:#1b4f96;border-radius:999px;padding:2px 11px;font-size:13px;font-weight:700}
+.cat .catnote{margin:0 0 14px;color:var(--muted);font-size:14px}
+.repogrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:0;padding:0;list-style:none}
+.repogrid li{border:1px solid #e7ecf3;border-radius:11px;padding:13px 15px;background:#fbfcfe}
+.repogrid a.rn{display:block;font-weight:700;font-size:15px;color:#143a66;overflow-wrap:anywhere}
+.repogrid a.rn .cn{font-weight:600;color:#33465c;font-size:14px}
+.repogrid a.rn .out{color:#8ba1b8;font-weight:400}
+.repogrid p{margin:5px 0 0;font-size:14.2px;color:#4c5c6e;line-height:1.65}
+
+/* ---------- awards ---------- */
+.award{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:18px 20px;
+  border-left:4px solid #cfdcec}
+.award.top{border-left-color:#c9922a;background:#fffdf7}
+.award .lvl{display:inline-block;font-size:12.5px;font-weight:700;color:#1b4f96;
+  background:var(--chip);border-radius:6px;padding:2px 9px;margin-bottom:8px}
+.award.top .lvl{background:#fbeed2;color:#8a5a00}
+.award h3{margin:0 0 4px;font-size:16.5px;line-height:1.5}
+.award p{margin:0;font-size:14.3px;color:var(--muted)}
+.note{background:var(--warnbg);border:1px solid var(--warnline);border-radius:12px;
+  padding:16px 20px;margin-top:16px;font-size:14.6px;color:#5c4708}
+.note b{color:#7a5c00}
+.note ul{margin:8px 0 0;padding-left:20px}
+.note li{margin-bottom:5px}
+
+/* ---------- cert / contact ---------- */
+.certs{display:flex;flex-wrap:wrap;gap:12px}
+.cert{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 20px;
+  display:flex;align-items:center;gap:12px;min-width:180px;flex:1 1 180px}
+.cert b{font-size:16px}
+.cert span{color:var(--muted);font-size:13.6px;display:block}
+.contact-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.contact-item{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 20px}
+.contact-item span{display:block;color:var(--muted);font-size:13.6px;margin-bottom:3px}
+.contact-item strong,.contact-item a{font-size:16px;overflow-wrap:anywhere}
+
+/* ---------- footer ---------- */
+.site-footer{background:var(--navy);color:#c6d6ea;margin-top:44px;padding:36px 0 30px}
+.site-footer h2{color:#fff;font-size:19px;margin:0 0 8px}
+.site-footer h3{color:#e6eefa;font-size:15.5px;margin:22px 0 8px}
+.site-footer a{color:#a9c9ee}
+.site-footer a:hover{color:#fff}
+.idxlist{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:4px 14px;font-size:13.6px}
+.idxlist li{max-width:100%;overflow-wrap:anywhere}
+.foot-meta{border-top:1px solid #ffffff1f;margin-top:26px;padding-top:16px;font-size:13.6px;
+  display:flex;flex-wrap:wrap;gap:6px 20px;color:#93aac4}
+.foot-meta a{color:#c6d6ea}
+
+/* ---------- responsive ---------- */
+@media(max-width:900px){
+  .grid3{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .project-grid,.project.reverse .project-grid{grid-template-columns:1fr}
+  .project.reverse .media-panel{order:0}
+}
+@media(max-width:700px){
+  .wrap{padding:0 15px}
+  .hero{padding:38px 0 34px}
+  .hero h1{font-size:32px}
+  .hero .positioning{font-size:18px}
+  .nav{padding:10px 15px;gap:8px}
+  .nav-links{margin-left:0;gap:4px 13px;font-size:13.5px}
+  .grid2,.grid3,.repogrid,.contact-grid{grid-template-columns:1fr}
+  .sec{padding:28px 0 4px}
+  .sec-head h2{font-size:22px}
+  .dl>div{grid-template-columns:1fr;gap:0 0}
+  .dl dt{font-size:13.6px}
+  .card,.cat,.project-body{padding:17px}
+  .hero-contact a,.hero-contact span{font-size:13.8px;padding:7px 12px}
+}
+
+/* ---------- print ---------- */
+@media print{
+  @page{margin:14mm}
+  :root{--bg:#fff;--card:#fff;--line:#bbb;--muted:#444;--ink:#000;--accent:#000}
+  html{scroll-behavior:auto}
+  body{background:#fff;color:#000;font-size:11.5pt;line-height:1.5}
+  .site-header,.no-print,.skip,.media-panel video,.actions .btn.ghost{display:none!important}
+  .hero{background:#fff!important;color:#000;padding:0 0 10px;border-bottom:2px solid #000}
+  .hero h1,.hero h1 small,.hero .positioning,.hero .sub{color:#000}
+  .eyebrow{color:#333}
+  .chips li{background:#fff;border:1px solid #666;color:#000}
+  .chips li.key{background:#eee;color:#000}
+  .hero-contact{margin-top:12px}
+  .hero-contact a,.hero-contact span{background:#fff;border:1px solid #999;color:#000}
+  a{color:#000;text-decoration:none}
+  a.purl::after{content:" (" attr(href) ")";font-size:9.5pt;color:#333;overflow-wrap:anywhere}
+  .sec{padding:14px 0 0}
+  .project,.card,.cat,.award,.skill,.cert,.contact-item,.repogrid li,ul.duty li,.note{
+    break-inside:avoid;page-break-inside:avoid}
+  .project-grid,.project.reverse .project-grid{grid-template-columns:1fr}
+  .project{page-break-inside:avoid}
+  .media-panel,.ph{display:none}
+  .cat{page-break-inside:auto}
+  .repogrid{grid-template-columns:1fr 1fr}
+  .site-footer{background:#fff;color:#000;border-top:2px solid #000}
+  .site-footer h2,.site-footer h3{color:#000}
+  .site-footer a,.foot-meta,.foot-meta a{color:#000}
+  .idxlist{columns:3;column-gap:14px;display:block}
+  .idxlist li{break-inside:avoid;font-size:10pt}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳到主要内容</a>
+
+<header class="site-header no-print">
+  <nav class="nav" aria-label="主导航">
+    <a class="brand" href="#top"><span class="brand-mark">Y</span><span>尤译庆</span></a>
+    <div class="nav-links">
+      <a href="#intent">求职意向</a>
+      <a href="#edu">教育背景</a>
+      <a href="#skills">专业技能</a>
+      <a href="#intern">实习经历</a>
+      <a href="#featured">重点项目</a>
+      <a href="#repos">项目仓库</a>
+      <a href="#awards">奖项证书</a>
+      <a href="#contact">联系方式</a>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+<section class="hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">2027 Campus Recruitment · Embedded Software / Firmware</p>
+    <h1>尤译庆<small> YOU YIQING</small></h1>
+    <p class="positioning">2027届本科应届生 · 嵌入式软件 / 固件开发方向</p>
+    <p class="sub">
+      湖北恩施学院 · 电气工程及其自动化 · 本科 · 2027年7月毕业。以 STM32 / ESP32-S3 / FreeRTOS 固件开发、
+      通信协议与板级调试、运动控制与上位机工具为主要实践方向，累计 <strong>61 个公开仓库</strong> 与多份竞赛报告可直接查阅。
+    </p>
+    <ul class="chips">
+      <li class="key">2027届本科应届生</li>
+      <li>湖北恩施学院</li>
+      <li>电气工程及其自动化</li>
+      <li>本科 · 统招全日制</li>
+      <li>求职意向：嵌入式软件 / 固件 / 测试 / 上位机 / FAE</li>
+      <li>可接受校招正式全职</li>
+    </ul>
+    <div class="hero-contact">
+      <a class="purl" href="mailto:meminehobe24435@gmail.com"><b>邮箱</b> meminehobe24435@gmail.com</a>
+      <a class="purl" href="tel:15629297138"><b>电话</b> 15629297138</a>
+      <span><b>微信</b> YyqKyothal</span>
+      <a class="purl" href="https://github.com/meminehobe24435-cmyk" target="_blank" rel="noopener noreferrer"><b>GitHub</b> meminehobe24435-cmyk</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 求职意向 ============ -->
+<section class="sec" id="intent">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Job Objective</p>
+      <h2>求职意向</h2>
+      <p>2027届校园招聘 · 正式全职岗位</p>
+    </div>
+    <div class="card">
+      <dl class="dl">
+        <div><dt>求职类型</dt><dd>2027届校园招聘（秋招 / 校招）· <strong>正式全职</strong>，非实习岗位</dd></div>
+        <div><dt>目标岗位</dt><dd>
+          嵌入式软件工程师 ｜ 固件工程师（Firmware）｜ 嵌入式测试 / 测试开发工程师 ｜
+          上位机软件工程师 ｜ FAE / AE 应用工程师（MCU、传感器、无线方向）
+        </dd></div>
+        <div><dt>期望城市</dt><dd>武汉 / 深圳 / 苏州 / 杭州 / 成都（可协商，最终以双方沟通为准）</dd></div>
+        <div><dt>到岗时间</dt><dd>2027年7月毕业，具体到岗时间可协商</dd></div>
+        <div><dt>学历层级</dt><dd>本科（四年制 · 统招 · 全日制 · 有学位证）</dd></div>
+        <div><dt>方向说明</dt><dd>
+          主投方向为 <strong>MCU / 嵌入式软件 / 固件开发</strong>（STM32、ESP32-S3、FreeRTOS、外设驱动、通信协议、
+          文件系统、USB / WiFi、板级调试证据链最完整）；并行投递嵌入式测试验证与 MCU 应用 / FAE 方向。
+        </dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 教育背景 ============ -->
+<section class="sec" id="edu">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Education</p>
+      <h2>教育背景</h2>
+    </div>
+    <div class="card">
+      <h3>湖北恩施学院 · 智能制造学院</h3>
+      <dl class="dl">
+        <div><dt>院校层次</dt><dd>普通本科（双非，如实说明）</dd></div>
+        <div><dt>专业</dt><dd>电气工程及其自动化（电气类）</dd></div>
+        <div><dt>学历 / 学制</dt><dd>本科 · 四年制 · 统招 · 全日制 · 有学位证</dd></div>
+        <div><dt>毕业届别</dt><dd><strong>2027届</strong>（2023.09 入学，预计 2027.06 毕业）</dd></div>
+        <div><dt>成绩</dt><dd>平均学分绩点 <strong>3.6 / 5.0</strong> ｜ 平均成绩 <strong>91.63 / 100</strong> ｜ 已获学分 <strong>146.0</strong>（应取 169.5）</dd></div>
+        <div><dt>相关课程方向</dt><dd>嵌入式系统、电气控制与 PLC、工业机器人应用编程、模拟 / 数字电子技术、自动控制原理</dd></div>
+      </dl>
+      <p class="muted" style="margin-top:12px">
+        说明：成绩排名 / 专业排名以学校出具材料为准，本页不列；无排名数据时不虚构。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 专业技能 ============ -->
+<section class="sec" id="skills">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Core Skills</p>
+      <h2>专业技能</h2>
+      <p>按项目实际证据分级：能主讲（有源码 / 实机产物）→ 掌握（实际做过，但按证据不作最高级表述）→ 了解 / 接触过</p>
+    </div>
+    <div class="legend">
+      <span><span class="tier t1">熟练</span><b>熟练使用</b>：有完整源码、实机产物，可独立讲解实现细节</span>
+      <span><span class="tier t2">掌握</span><b>掌握</b>：在项目 / 实验中实际做过，可回答具体问题，按证据不作最高级表述</span>
+      <span><span class="tier t3">了解</span><b>了解 / 接触过</b>：有课程、实验或工具链接触经验，深度有限</span>
+    </div>
+
+    <div class="grid3">
+      <article class="skill">
+        <span class="name">程序开发</span>
+        <p><span class="tier t1">熟练</span>C / C++（裸机与 RTOS 下的驱动、状态机、任务与协议实现）；Python（调试脚本、自动化测试、数据分析工具）。</p>
+        <p><span class="tier t1">熟练</span>STM32F1 / F4、ESP32-S3 平台开发；FreeRTOS（任务拆分、队列、信号量、系统裁剪）；Keil、ESP-IDF、VS Code。</p>
+        <p><span class="tier t2">掌握</span>RT-Thread；瑞萨 RA8P1 / RA6M5（e² studio / FSP 工程）；杰理 AC632N；CH585；K230 / CanMV。</p>
+        <p><span class="tier t3">了解</span>GD32、CH32、MSPM0G3507；Java；C#（WPF 上位机实验）；Linux / Ubuntu 基础使用；FastAPI / SQLite。</p>
+      </article>
+
+      <article class="skill">
+        <span class="name">协议调试</span>
+        <p><span class="tier t1">熟练</span>UART、I²C、SPI、PWM、USB CDC / MSC 复合设备、WiFi / HTTP、BLE 蓝牙、FATFS / SD 卡文件系统。</p>
+        <p><span class="tier t2">掌握</span>CAN、RS485、One-Wire、Modbus RTU、CANopen、CRC 校验、MAVLink v2、LwIP；ISO-TP / UDS 诊断协议（个人开源工程实践）。</p>
+        <p><span class="tier t2">掌握</span>使用示波器、逻辑分析仪完成信号检测与协议故障定位；通信接口异常复现、日志分析与回归验证。</p>
+        <p><span class="tier t3">了解</span>MQTT / OTA 升级逻辑、RTSP / RTP 传输层机制（应用层与协议层模拟实践）。</p>
+      </article>
+
+      <article class="skill">
+        <span class="name">电路设计</span>
+        <p><span class="tier t2">掌握</span>使用 Altium Designer、嘉立创 EDA 完成原理图绘制、PCB 布局布线与 Gerber 文件输出（课程与项目实践）。</p>
+        <p><span class="tier t3">了解</span>华秋 DFM / DFX 等工艺分析工具；具备基础 PCB 审图能力。</p>
+        <p class="muted">说明：以课程设计、竞赛板卡与个人项目为主，未承担过量产板卡的独立设计交付。</p>
+      </article>
+
+      <article class="skill">
+        <span class="name">硬件调试</span>
+        <p><span class="tier t2">掌握</span>贴片 / 直插元器件焊接、板级功能测试与整机联调；样机打样、上电检查、问题定位与修正。</p>
+        <p><span class="tier t2">掌握</span>USB 枚举异常、SD 写入失败、网络配置不生效等问题的复现、定位与修复流程。</p>
+        <p class="muted">说明：了解 PCBA 从打样到小批量验证的基本流程，未独立负责过量产导入（NPI）。</p>
+      </article>
+
+      <article class="skill">
+        <span class="name">算法应用</span>
+        <p><span class="tier t2">掌握</span>PID / 串级 PID 闭环控制，在云台跟踪、循迹、平衡车等项目中完成参数整定；编码器与姿态反馈处理。</p>
+        <p><span class="tier t2">掌握</span>电机 / 舵机 / 步进控制；图像二值化、颜色阈值分割等视觉预处理算法实现与移植。</p>
+        <p><span class="tier t3">了解</span>FOC（Clarke / Park、SVPWM）、数字电源双闭环等控制算法的数值仿真与算法层实践。</p>
+        <p class="muted">说明：以上算法实践以算法层与仿真层为主，未宣称真实功率级、整机或量产验证。</p>
+      </article>
+
+      <article class="skill">
+        <span class="name">FPGA 开发</span>
+        <p><span class="tier t3">了解</span>接触过 Verilog 仿真与 Vivado / Vitis / Vitis HLS 工具链；了解摄像头采集、并行流水线与 IP 核集成的基本流程。</p>
+        <p><span class="tier t3">了解</span>在 FPGA 双目视觉竞赛项目中负责图像流水线与 FPGA 侧集成（团队作品，非独立完成）。</p>
+        <p class="muted">说明：FPGA 深度有限，不具备 IC 验证（UVM）与量产 RTL 交付经验，本页不作超出证据的表述。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 实习经历 ============ -->
+<section class="sec" id="intern">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Internship</p>
+      <h2>实习经历</h2>
+    </div>
+    <div class="card">
+      <div class="job-head">
+        <h3>深圳维特智能科技有限公司 · 嵌入式研发实习岗</h3>
+        <span class="when">2026.03 起（起止时间以实习证明盖章日期为准）</span>
+      </div>
+      <p class="muted">企业实习（本页仅列这一段企业实习经历）</p>
+      <ul class="duty">
+        <li><b>无人机地面小车固件：</b>STM32F103 四舵机 / 四电机驱动固件，实现 PS2 遥控、CAN 通信、四轮转向与蟹行模式、三档调速，以及 500&nbsp;ms 失联保护。</li>
+        <li><b>飞控链路联调：</b>参与 PX4 飞控模块开发，打通 MAVLink / UART 链路。</li>
+        <li><b>独立交付：</b>ESP32-S3 双路串口数据记录仪（ESP-IDF + FreeRTOS）——双 UART 采集、SD / FATFS 落盘、USB CDC / MSC 复合设备、WiFi Web 配置界面，实机验证通过。</li>
+        <li><b>蓝牙与低功耗：</b>杰理 AC632N 蓝牙驱动开发与低功耗设计。</li>
+        <li><b>AI 工程化：</b>设计并搭建钉钉日报自动化工作流，已在研发与销售两个部门落地使用。</li>
+        <li><b>需求对接：</b>参与客户前期技术沟通，梳理应用场景、功能需求与软硬件接口，协助需求分析与技术方案确认，配合研发推进联调测试与问题闭环。</li>
+      </ul>
+      <p class="muted" style="margin-top:12px">
+        另有华中师范大学全日制专业学位研究生实践基地的嵌入式开发与助教经历，
+        <strong>不等同于企业任职</strong>，不计入实习段数，故不在本页作为实习经历列出。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 重点项目（含媒体） ============ -->
+<section class="sec" id="featured">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Selected Work</p>
+      <h2>重点项目</h2>
+      <p>4 个重点项目的演示视频与完整报告可直接查看（团队项目的个人分工已在卡片内标明）</p>
+    </div>
+
+    <article class="project">
+      <div class="project-grid">
+        <div class="media-panel">
+          <video controls preload="metadata" playsinline aria-label="双目视觉处理系统演示视频">
+            <source src="assets/videos/binocular-vision.mp4" type="video/mp4">
+            当前浏览器不支持视频播放，请下载视频文件查看。
+          </video>
+        </div>
+        <div class="project-body">
+          <span class="tag">FPGA · 双目视觉</span><span class="badge">团队作品</span>
+          <h3>双目视觉处理系统</h3>
+          <p>
+            基于 FPGA（安路 EG4S20 + SDRAM）平台的双目图像采集、处理与结果输出系统，
+            配套 66 页完整设计报告，含方案设计、模块划分与实验记录。
           </p>
-          <div class="hero-actions">
-            <a class="button primary" href="#projects">查看项目</a>
-            <a class="button secondary" href="assets/reports/binocular-vision-report.pdf" target="_blank" rel="noreferrer">
-              查看代表报告
-            </a>
-          </div>
-          <div class="stats" aria-label="作品集概览">
-            <div>
-              <strong>4</strong>
-              <span>个项目</span>
-            </div>
-            <div>
-              <strong>2</strong>
-              <span>个演示视频</span>
-            </div>
-            <div>
-              <strong>3</strong>
-              <span>份报告</span>
-            </div>
+          <p class="muted">
+            <strong>个人分工：</strong>负责图像流水线与 FPGA 侧集成。团队作品，非独立完成；完整 RTL 与个人提交记录未在公开仓库提供。
+          </p>
+          <div class="actions">
+            <a class="btn purl" href="assets/videos/binocular-vision.mp4" target="_blank" rel="noopener noreferrer">观看演示视频</a>
+            <a class="btn ghost purl" href="assets/reports/binocular-vision-report.pdf" target="_blank" rel="noopener noreferrer">查看报告（PDF）</a>
           </div>
         </div>
-      </section>
+      </div>
+    </article>
 
-      <section class="section intro" aria-label="求职方向">
-        <div class="section-heading">
-          <p class="eyebrow">Target Role</p>
-          <h2>嵌入式开发实习生</h2>
+    <article class="project reverse">
+      <div class="project-grid">
+        <div class="media-panel">
+          <video controls preload="metadata" playsinline aria-label="CH585 三模无线鼠标演示视频">
+            <source src="assets/videos/ch585-mouse.mp4" type="video/mp4">
+            当前浏览器不支持视频播放，请下载视频文件查看。
+          </video>
         </div>
-        <p>
-          关注 MCU/FPGA、传感器数据处理、运动控制、视觉算法落地与软硬件联调。以下项目按作品完成度整理，
-          便于快速了解实践内容、负责模块和可查看材料。
-        </p>
-      </section>
+        <div class="project-body">
+          <span class="tag">CH585 · 三模无线 · 低功耗</span><span class="badge">竞赛参赛作品</span>
+          <h3>基于 CH585 的电竞级三模无线鼠标</h3>
+          <p>
+            基于 CH585 平台实现有线 / 2.4G / 蓝牙三模切换的无线鼠标固件，
+            重点在有线无线切换逻辑、无线链路通信与嵌入式固件调试。
+          </p>
+          <p class="muted">
+            <strong>数据边界：</strong>本页不承诺轮询率、延迟与续航的具体数值，相关指标以原始测试记录为准（目前未公开）。
+          </p>
+          <div class="actions">
+            <a class="btn purl" href="assets/videos/ch585-mouse.mp4" target="_blank" rel="noopener noreferrer">观看演示视频</a>
+          </div>
+        </div>
+      </div>
+    </article>
 
-      <section id="skills" class="section skills">
-        <div class="section-heading">
-          <p class="eyebrow">Core Skills</p>
-          <h2>专业技能</h2>
+    <article class="project">
+      <div class="project-grid">
+        <div class="media-panel"><div class="ph">REPORT · AUTO AIM</div></div>
+        <div class="project-body">
+          <span class="tag">MSPM0G3507 · K230 · 串级 PID</span>
+          <h3>简易自行瞄准装置</h3>
+          <p>
+            基于 MSPM0G3507 主控与 K230 视觉模块的自动瞄准装置，采用编码器反馈、串级 PID 与 UART 通信驱动二维云台，
+            报告中记录了方案设计、实现过程与测试结果。
+          </p>
+          <p class="muted">
+            <strong>个人分工：</strong>负责视觉识别、云台控制与系统联调（自述范围，分工以报告内容为准）。
+          </p>
+          <div class="actions">
+            <a class="btn ghost purl" href="assets/reports/auto-aim-device-report.pdf" target="_blank" rel="noopener noreferrer">查看报告（PDF）</a>
+          </div>
         </div>
-        <div class="skill-grid">
-          <article>
-            <span>程序开发</span>
-            <p>
-              精通 C/C++ 嵌入式编程，熟练使用 Python 编写调试脚本；熟悉 FreeRTOS、RT-Thread，
-              掌握多任务调度、信号量、队列通信机制，可完成系统裁剪与性能优化。
-            </p>
-            <p>具备 STM32、GD32、MSPM0、CH32 等主流芯片平台开发经验，熟练运用 Keil、VSCode、CodeWarrior 开发环境。</p>
-          </article>
-          <article>
-            <span>协议调试</span>
-            <p>
-              精通 UART、I2C、SPI、One-Wire 等底层串行通信协议，掌握 LwIP 网络协议栈开发与调试；
-              可使用示波器、逻辑分析仪完成信号检测与协议故障定位。
-            </p>
-          </article>
-          <article>
-            <span>电路设计</span>
-            <p>
-              熟练使用 Altium Designer、嘉立创 EDA 完成原理图绘制、PCB 布局布线与 Gerber 文件输出；
-              了解华秋 DFM、DFX 等工艺分析工具，具备 PCB 审图能力。
-            </p>
-          </article>
-          <article>
-            <span>硬件调试</span>
-            <p>
-              熟练完成贴片、直插元器件焊接、板级功能测试与整机系统集成，掌握 PCBA 从样品打样、
-              调试到量产导入的完整流程。
-            </p>
-          </article>
-          <article>
-            <span>算法应用</span>
-            <p>
-              精通 PID、串级 PID 等运动控制算法，熟练实现图像二值化、颜色阈值分割等视觉算法，
-              可结合项目完成算法移植、参数整定与落地应用。
-            </p>
-          </article>
-          <article>
-            <span>FPGA 开发</span>
-            <p>
-              掌握 Xilinx、高云 FPGA 开发流程，熟练使用 Vivado、Vitis、Vitis HLS，能够完成摄像头驱动、
-              并行流水线设计、IP 核集成与硬件加速开发。
-            </p>
-          </article>
-        </div>
-      </section>
+      </div>
+    </article>
 
-      <section id="projects" class="section projects">
-        <div class="section-heading">
-          <p class="eyebrow">Selected Work</p>
-          <h2>项目展示</h2>
-        </div>
-
-        <article class="project featured">
-          <div class="media-panel">
-            <video controls preload="metadata" poster="" aria-label="双目视觉处理系统演示视频">
-              <source src="assets/videos/binocular-vision.mp4" type="video/mp4" />
-              当前浏览器不支持视频播放，请下载视频文件查看。
-            </video>
-          </div>
-          <div class="project-content">
-            <span class="tag">FPGA · 双目视觉</span>
-            <h3>双目视觉处理系统</h3>
-            <p>
-              围绕双目图像采集、处理与结果输出构建的视觉处理系统，重点体现图像链路处理、硬件平台验证和报告整理能力。
-            </p>
-            <div class="project-actions">
-              <a class="button primary" href="assets/videos/binocular-vision.mp4" target="_blank" rel="noreferrer">观看视频</a>
-              <a class="button secondary" href="assets/reports/binocular-vision-report.pdf" target="_blank" rel="noreferrer">查看报告</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="project">
-          <div class="media-panel">
-            <video controls preload="metadata" aria-label="CH585 三模无线鼠标演示视频">
-              <source src="assets/videos/ch585-mouse.mp4" type="video/mp4" />
-              当前浏览器不支持视频播放，请下载视频文件查看。
-            </video>
-          </div>
-          <div class="project-content">
-            <span class="tag">CH585 · 三模无线 · 低延迟</span>
-            <h3>基于 CH585 的电竞级高性能超低延迟三模无线鼠标</h3>
-            <p>
-              基于 CH585 平台探索无线外设低延迟通信、模式切换与嵌入式固件实现，突出外设产品化和调试验证思路。
-            </p>
-            <div class="project-actions">
-              <a class="button primary" href="assets/videos/ch585-mouse.mp4" target="_blank" rel="noreferrer">观看视频</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="project">
-          <div class="placeholder-panel">
-            <span>REPORT</span>
-          </div>
-          <div class="project-content">
-            <span class="tag">控制系统 · 自瞄装置</span>
-            <h3>简易自行瞄准装置</h3>
-            <p>
-              通过目标识别、执行机构控制与系统调试完成自动瞄准功能验证，报告中记录了方案设计、实现过程与测试结果。
-            </p>
-            <div class="project-actions">
-              <a class="button secondary" href="assets/reports/auto-aim-device-report.pdf" target="_blank" rel="noreferrer">查看报告</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="project">
-          <div class="placeholder-panel tracking">
-            <span>TRACKING</span>
-          </div>
-          <div class="project-content">
-            <span class="tag">运动控制 · 目标追踪</span>
-            <h3>运动目标控制与自动追踪系统</h3>
-            <p>
-              面向运动目标检测与自动追踪场景，完成系统方案、控制流程与实验验证，体现综合设计和团队项目交付能力。
-            </p>
-            <div class="project-actions">
-              <a class="button secondary" href="assets/reports/moving-target-tracking-report.pdf" target="_blank" rel="noreferrer">查看报告</a>
-            </div>
-          </div>
-        </article>
-      </section>
-
-      <section id="awards" class="section awards">
-        <div class="section-heading">
-          <p class="eyebrow">Awards</p>
-          <h2>竞赛奖项</h2>
-        </div>
-        <div class="award-board">
-          <article class="award-card highlight">
-            <span>国家一等奖</span>
-            <h3>2025 年全国大学生嵌入式芯片与系统设计竞赛</h3>
-            <p>创新设计赛道</p>
-          </article>
-          <article class="award-card highlight">
-            <span>湖北省一等奖 · 晋级国赛</span>
-            <h3>2025 年全国大学生电子设计竞赛 TI 杯</h3>
-            <p>学科竞赛</p>
-          </article>
-          <article class="award-card">
-            <span>二等奖 · 晋级国赛</span>
-            <h3>2026 年全国大学生电子设计竞赛信息科技前沿专题赛</h3>
-            <p>瑞萨杯</p>
-          </article>
-          <article class="award-card">
-            <span>中部赛区三等奖</span>
-            <h3>2025 年全国大学生嵌入式系统竞赛</h3>
-            <p>芯片应用赛道</p>
-          </article>
-          <article class="award-card">
-            <span>湖北省三等奖</span>
-            <h3>2025 年蓝桥杯单片机赛道</h3>
-            <p>专项赛事</p>
-          </article>
-          <article class="award-card">
-            <span>二等奖</span>
-            <h3>2026 年首届“杉达杯”产教融合创新创业大赛全国邀请赛</h3>
-            <p>人工智能赛道</p>
-          </article>
-          <article class="award-card">
-            <span>湖北省三等奖</span>
-            <h3>2025 年全国大学生数学建模竞赛</h3>
-            <p>综合竞赛</p>
-          </article>
-          <article class="award-card">
-            <span>一等奖 / 二等奖</span>
-            <h3>全国大学生电子设计竞赛校赛</h3>
-            <p>2024 年一等奖，2025 年二等奖</p>
-          </article>
-        </div>
-        <div class="cert-strip">
-          <span>技能证书</span>
-          <strong>C1 驾驶证</strong>
-          <strong>高压电工证</strong>
-        </div>
-      </section>
-
-      <section id="contact" class="section contact">
-        <div class="section-heading">
-          <p class="eyebrow">Contact</p>
-          <h2>联系与说明</h2>
-        </div>
-        <p>
-          如需进一步了解项目细节，可结合页面中的演示视频和 PDF 报告查看，也欢迎通过以下方式联系。
-        </p>
-        <div class="contact-list" aria-label="联系方式">
-          <a href="mailto:meminehobe24435@gmail.com">
-            <span>邮箱</span>
-            <strong>meminehobe24435@gmail.com</strong>
-          </a>
-          <a href="tel:15629297138">
-            <span>电话</span>
-            <strong>15629297138</strong>
-          </a>
-          <div>
-            <span>微信</span>
-            <strong>YyqKyothal</strong>
+    <article class="project reverse">
+      <div class="project-grid">
+        <div class="media-panel"><div class="ph">REPORT · TRACKING</div></div>
+        <div class="project-body">
+          <span class="tag">K230 · 视觉阈值处理 · 云台控制</span><span class="badge">团队项目</span>
+          <h3>运动目标控制与自动追踪系统</h3>
+          <p>
+            面向运动目标检测与自动追踪场景，基于 K230 完成颜色 / 阈值处理与 UART 通信，通过 PID 驱动云台跟随目标，
+            报告含系统方案、控制流程与实验验证记录。
+          </p>
+          <p class="muted">
+            <strong>个人分工：</strong>团队项目，参与控制流程实现与系统联调（具体模块划分以报告为准）。
+          </p>
+          <div class="actions">
+            <a class="btn ghost purl" href="assets/reports/moving-target-tracking-report.pdf" target="_blank" rel="noopener noreferrer">查看报告（PDF）</a>
           </div>
         </div>
-      </section>
-    </main>
-  </body>
+      </div>
+    </article>
+
+    <div class="note">
+      <b>证据与边界说明（重要）</b>
+      <ul>
+        <li>上述 4 个项目以竞赛报告与演示视频为主要证据，其中 2 项为团队作品，个人分工已在卡片中标明，均不表述为独立完成。</li>
+        <li>本页不展示无原始测试记录支撑的量化性能指标（轮询率、延迟、续航、良率与效率类比例数字等），需要时请以原始材料为准。</li>
+        <li>涉及仿真、算法层或工具链实践的项目，已在下方项目仓库区一句话定位中标注其边界（仿真 / 主机端 / 个人实训等）。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 项目仓库（61） ============ -->
+<section class="sec" id="repos">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">GitHub Repositories</p>
+      <h2>项目仓库总览（61 个公开仓库）</h2>
+      <p>按 7 个方向分类，每个仓库给出名称、一句话定位与 GitHub 链接；完整源码与文档在各自仓库中</p>
+    </div>
+
+    <div class="cat" id="cat-embedded">
+      <h3>嵌入式与设备通信 <span class="count">14</span></h3>
+      <p class="catnote">MCU / RTOS 固件、总线协议、设备驱动与应用层通信实践</p>
+      <ul class="repogrid">
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/-_MicoAir743v2_ArduPilot" target="_blank" rel="noopener noreferrer">-_MicoAir743v2_ArduPilot <span class="cn">· MicoAir743v2 飞控开发资料</span> <span class="out">↗</span></a><p>ArduPilot 飞控开发环境、SITL 测试与基线固件整理；基于开源飞控生态，非独立开发完整飞控。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/ac632n-dev-tools" target="_blank" rel="noopener noreferrer">ac632n-dev-tools <span class="cn">· AC632N 开发工具集</span> <span class="out">↗</span></a><p>杰理 AC632N 的构建、烧录、UART 日志、调试界面与自动化工具链。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/automotive-can-uds-lab" target="_blank" rel="noopener noreferrer">automotive-can-uds-lab <span class="cn">· CAN 与 UDS 诊断实验</span> <span class="out">↗</span></a><p>CAN 通信、ISO-TP 传输与 UDS 诊断协议实践，含虚拟总线与 SocketCAN / vcan 路径；不代表量产车验证。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/display-firmware-lab" target="_blank" rel="noopener noreferrer">display-firmware-lab <span class="cn">· 显示器固件机制实验</span> <span class="out">↗</span></a><p>EDID、DDC/CI、输入源切换、OSD 与 PWM 背光逻辑的主机可测 C 代码实现。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/esp-recorder" target="_blank" rel="noopener noreferrer">esp-recorder <span class="cn">· ESP32-S3 双路串口数据记录仪</span> <span class="out">↗</span></a><p>ESP-IDF + FreeRTOS：双 UART 采集、SD / FATFS 落盘、USB CDC / MSC 复合设备、WiFi Web 配置（实习期间独立交付）。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/esp32-wifi-recorder-v1.2" target="_blank" rel="noopener noreferrer">esp32-wifi-recorder-v1.2 <span class="cn">· ESP32 记录仪 v1.2</span> <span class="out">↗</span></a><p>上述记录仪的版本化仓库入口（同一项目的另一版本，不重复计数）。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/iot-mqtt-ota-lab" target="_blank" rel="noopener noreferrer">iot-mqtt-ota-lab <span class="cn">· MQTT 与 OTA 逻辑实验</span> <span class="out">↗</span></a><p>MQTT 编解码、QoS1、镜像校验、A/B 回滚与低功耗策略的主机端实践。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/linux-driver-lab" target="_blank" rel="noopener noreferrer">linux-driver-lab <span class="cn">· Linux 字符设备驱动实验</span> <span class="out">↗</span></a><p>misc 驱动、环形缓冲、互斥、等待队列、ioctl 与 sysfs（内存虚拟设备，非实际硬件外设驱动）。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/mavlink-avionics-lab" target="_blank" rel="noopener noreferrer">mavlink-avionics-lab <span class="cn">· MAVLink 航电链路实验</span> <span class="out">↗</span></a><p>MAVLink v2 帧编解码、校验、流式解析、心跳与命令应答的 C 语言实现。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/motor-ecu-base-sw" target="_blank" rel="noopener noreferrer">motor-ecu-base-sw <span class="cn">· 电机控制器底层软件原型</span> <span class="out">↗</span></a><p>MCAL / CDD 分层、诊断、刷写与安全访问的主机端 C 实践；非真实车载 ECU 或功能安全认证。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/netcam-app-lab" target="_blank" rel="noopener noreferrer">netcam-app-lab <span class="cn">· 网络相机应用层实验</span> <span class="out">↗</span></a><p>RTSP 会话、RTP 排序、FU-A 重组、运动告警与录像索引的应用 / 协议层模拟。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/riscv-firmware-lab" target="_blank" rel="noopener noreferrer">riscv-firmware-lab <span class="cn">· RISC-V 固件实验</span> <span class="out">↗</span></a><p>RV32I 模拟器与汇编工具，探索启动流程、定时器中断与最小任务上下文切换（主机仿真）。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/serial-data-gateway" target="_blank" rel="noopener noreferrer">serial-data-gateway <span class="cn">· 串口数据采集网关</span> <span class="out">↗</span></a><p>Linux / C++ 串口帧解析、CRC 校验、有界队列流水线、非阻塞 TCP 查询与记录处理。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/uav-car-adhesion-platform" target="_blank" rel="noopener noreferrer">uav-car-adhesion-platform <span class="cn">· 无人机攀附平台与小车固件</span> <span class="out">↗</span></a><p>STM32 四舵轮小车控制（PS2 遥控、CAN、四轮转向、蟹行、失联保护）、PX4 覆盖层与攀附平台资料。</p></li>
+      </ul>
+    </div>
+
+    <div class="cat" id="cat-robot">
+      <h3>机器人与运动控制 <span class="count">5</span></h3>
+      <p class="catnote">运动学、任务编排、关节控制与执行机构闭环</p>
+      <ul class="repogrid">
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/five-axis-cnc-lab" target="_blank" rel="noopener noreferrer">five-axis-cnc-lab <span class="cn">· 五轴运动学与精度分析</span> <span class="out">↗</span></a><p>五轴运动学、RTCP、插补误差与机床精度分析（算法与分析实践，非实体机床控制系统交付）。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/fleet-dispatch-lab" target="_blank" rel="noopener noreferrer">fleet-dispatch-lab <span class="cn">· 车队任务调度实验</span> <span class="out">↗</span></a><p>任务状态机、调度、交通控制、缓存语义、消息总线、故障注入与 HTTP / SSE 事件驱动平台实践。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/robot-motion-control" target="_blank" rel="noopener noreferrer">robot-motion-control <span class="cn">· 机器人运动控制与保护</span> <span class="out">↗</span></a><p>关节控制、平滑插值、动作序列与限位 / 通信 / 急停保护逻辑（保护逻辑不等同安全认证）。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/ros2-patrol-robot" target="_blank" rel="noopener noreferrer">ros2-patrol-robot <span class="cn">· ROS2 巡检任务实践</span> <span class="out">↗</span></a><p>巡检 / 导览任务编排、告警、低电回充、断点续巡与 Nav2 集成（任务层实践，实体部署边界以仓库记录为准）。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/second-gen-tea-picking-robot" target="_blank" rel="noopener noreferrer">second-gen-tea-picking-robot <span class="cn">· 采茶机器人嵌入式控制</span> <span class="out">↗</span></a><p>级联 PID、力反馈、FreeRTOS 与多总线控制代码整理；公开软件版为仿真验证，不含实物样机数据。</p></li>
+      </ul>
+    </div>
+
+    <div class="cat" id="cat-power">
+      <h3>电源与电机控制 <span class="count">6</span></h3>
+      <p class="catnote">控制算法、环路分析与电源方案计算（部分为数值仿真）</p>
+      <ul class="repogrid">
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/digital-power-loop-sim" target="_blank" rel="noopener noreferrer">digital-power-loop-sim <span class="cn">· 数字电源闭环仿真</span> <span class="out">↗</span></a><p>C 语言实现 Buck 双闭环、状态机、保护逻辑与环路分析（数值仿真，非硬件实验）。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/foc-motor-control-lab" target="_blank" rel="noopener noreferrer">foc-motor-control-lab <span class="cn">· FOC 电机控制算法实验</span> <span class="out">↗</span></a><p>Clarke / Park 变换、SVPWM、电流 / 速度环、解耦与六步换相算法实践；不含真实功率级与量产验证。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/inverter-grid-parallel-lab" target="_blank" rel="noopener noreferrer">inverter-grid-parallel-lab <span class="cn">· 逆变器与并联控制实验</span> <span class="out">↗</span></a><p>MPPT、SOGI-PLL、SVPWM、下垂并联、环路稳定性与 UPS 切换的控制算法实验。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/offline-power-lab" target="_blank" rel="noopener noreferrer">offline-power-lab <span class="cn">· 离线 AC-DC 电源设计工具</span> <span class="out">↗</span></a><p>市电输入反激电源的设计计算与验证辅助工具（计算工具，非仿真器或实机结果）。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/usb-pd-powerbank-lab" target="_blank" rel="noopener noreferrer">usb-pd-powerbank-lab <span class="cn">· 快充移动电源固件仿真</span> <span class="out">↗</span></a><p>USB PD 握手、BMS 保护、SOC 估算与低功耗状态机的固件机制仿真。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/wind-farm-planning-lab" target="_blank" rel="noopener noreferrer">wind-farm-planning-lab <span class="cn">· 风电场方案评估工具</span> <span class="out">↗</span></a><p>风资源分布、尾流、AEP / LCOE、多方案对比与排布优化的数值分析。</p></li>
+      </ul>
+    </div>
+
+    <div class="cat" id="cat-vision">
+      <h3>视觉与 RTL <span class="count">9</span></h3>
+      <p class="catnote">图像链路、ISP / 红外信号链、Verilog 模块与软件渲染实践</p>
+      <ul class="repogrid">
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/camera-link-lab" target="_blank" rel="noopener noreferrer">camera-link-lab <span class="cn">· 智能相机链路仿真</span> <span class="out">↗</span></a><p>CSI-2 包层、GVSP 分块传输、重传、图像编码与推理接口（纯软件链路实践，非真实 PHY 驱动）。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/ir-core-lab" target="_blank" rel="noopener noreferrer">ir-core-lab <span class="cn">· 红外信号链数值实验</span> <span class="out">↗</span></a><p>NUC、盲元、AGC、BT.656 时序、TEC PID 与 VCSEL 电流环的 C 数值模型。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/isp-iq-lab" target="_blank" rel="noopener noreferrer">isp-iq-lab <span class="cn">· 图像质量与 ISP 工具</span> <span class="out">↗</span></a><p>PNG 读写、MTF / AWB / 噪声 / 坏点指标、ISP 管线仿真与参数扫描。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/mixed-signal-rtl-lab" target="_blank" rel="noopener noreferrer">mixed-signal-rtl-lab <span class="cn">· 数模混合芯片数字 RTL</span> <span class="out">↗</span></a><p>Verilog 实现 SAR ADC 控制、RDC、互补 PWM 死区与 SPI 寄存器模块，含测试与综合；非流片结果。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/raster-pipeline-lab" target="_blank" rel="noopener noreferrer">raster-pipeline-lab <span class="cn">· CPU 软件光栅化管线</span> <span class="out">↗</span></a><p>C++ 裁剪、光栅化、透视校正、深度缓存与纹理采样（软件渲染实践）。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/rtl-ddc-lab" target="_blank" rel="noopener noreferrer">rtl-ddc-lab <span class="cn">· 数字下变频 RTL 链路</span> <span class="out">↗</span></a><p>Verilog NCO、混频、CIC / FIR、QPSK、AXIS 与异步 FIFO，结合定点参考模型验证。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/rtl-ip-lab" target="_blank" rel="noopener noreferrer">rtl-ip-lab <span class="cn">· 可复用 RTL IP 实验</span> <span class="out">↗</span></a><p>异步 FIFO、格雷码跨时钟域、AXI4-Stream DMA 与 SPI 主控模块，配套 testbench 与综合路径。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/stereo-vision-lab" target="_blank" rel="noopener noreferrer">stereo-vision-lab <span class="cn">· 双目立体视觉流水线</span> <span class="out">↗</span></a><p>Python / OpenCV 标定、SGBM、点云重建与定量评测（合成真值数据）。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/zynq-stereo-depth-gimbal" target="_blank" rel="noopener noreferrer">zynq-stereo-depth-gimbal <span class="cn">· Zynq 双目测距与云台</span> <span class="out">↗</span></a><p>Zynq-7020 协作工程快照：相机采集、Census 匹配、显示与云台跟踪（含第三方 / BSP 文件，非全部个人原创）。</p></li>
+      </ul>
+    </div>
+
+    <div class="cat" id="cat-ai">
+      <h3>AI 与数据分析 <span class="count">8</span></h3>
+      <p class="catnote">工程化 AI 实践与数据分析工具（多数为个人实训 / 合成数据）</p>
+      <ul class="repogrid">
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/agent-runtime-lab" target="_blank" rel="noopener noreferrer">agent-runtime-lab <span class="cn">· Python Agent 运行时</span> <span class="out">↗</span></a><p>工具调用、Schema 校验、记忆、任务执行与评测的工程实践（确定性脚本后端，非真实 LLM 效果评测）。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/careerforge-ai" target="_blank" rel="noopener noreferrer">careerforge-ai <span class="cn">· 职业分析与面试工具</span> <span class="out">↗</span></a><p>以证据驱动方式组织岗位分析、可核验简历表述与面试训练的信息处理工具。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/embodied-ai-sdk-lab" target="_blank" rel="noopener noreferrer">embodied-ai-sdk-lab <span class="cn">· 具身感知 SDK 实验</span> <span class="out">↗</span></a><p>统一推理接口、传感器抽象、TorchScript 导出、INT8 量化与 CPU 基准（不等同实体机器人部署）。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/inspection-ai-lab" target="_blank" rel="noopener noreferrer">inspection-ai-lab <span class="cn">· 检测样品 AI 实验台</span> <span class="out">↗</span></a><p>光谱、表面图像、模态融合与 FastAPI 接口的个人实践（模拟数据，非产线验证）。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/manufacturing-ai-demo" target="_blank" rel="noopener noreferrer">manufacturing-ai-demo <span class="cn">· 设备故障与巡检演示</span> <span class="out">↗</span></a><p>故障状态识别模型、FastAPI 接口与巡检流程（AI 辅助个人实训，合成数据，无产线部署）。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/quality-analytics-lab" target="_blank" rel="noopener noreferrer">quality-analytics-lab <span class="cn">· 制造质量数据分析</span> <span class="out">↗</span></a><p>质量检查、统计分析、建模与报告生成（基于合成生产与质量数据）。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/rl-alignment-lab" target="_blank" rel="noopener noreferrer">rl-alignment-lab <span class="cn">· PPO 与 GRPO 教学实验</span> <span class="out">↗</span></a><p>NumPy 小网络与自造任务上的训练、奖励与评估闭环（教学实验，非大模型训练工程）。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/world-model-lab" target="_blank" rel="noopener noreferrer">world-model-lab <span class="cn">· 动作条件世界模型实验</span> <span class="out">↗</span></a><p>可交互三维场景、真值数据、潜在动力学与多维评测（CPU 可复现研究实践）。</p></li>
+      </ul>
+    </div>
+
+    <div class="cat" id="cat-tools">
+      <h3>后台、测试与工程工具 <span class="count">13</span></h3>
+      <p class="catnote">测试流程、上位机、仪器程控与工程辅助工具</p>
+      <ul class="repogrid">
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/android-device-testkit" target="_blank" rel="noopener noreferrer">android-device-testkit <span class="cn">· 安卓设备测试工具集</span> <span class="out">↗</span></a><p>用例组织、执行、缺陷记录与报告统计，覆盖设备接口测试流程。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/auv-comm-backend" target="_blank" rel="noopener noreferrer">auv-comm-backend <span class="cn">· 水下航行器通信后台</span> <span class="out">↗</span></a><p>C++ 帧协议、数据汇聚、指令分发、链路冗余、重连与校验实践。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/backend-service-kit" target="_blank" rel="noopener noreferrer">backend-service-kit <span class="cn">· C++ 后台服务组件</span> <span class="out">↗</span></a><p>HTTP、LRU / TTL、熔断、限流、健康状态与数据处理组件（进程内请求模拟，未作为线上服务）。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/dimension-metrology-lab" target="_blank" rel="noopener noreferrer">dimension-metrology-lab <span class="cn">· 尺寸计量与偏差分析</span> <span class="out">↗</span></a><p>几何拟合、形位公差、判定与报告工具（不代替计量设备校准或真实产品检测）。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/fullstack-lab" target="_blank" rel="noopener noreferrer">fullstack-lab <span class="cn">· 全栈 Web 实验</span> <span class="out">↗</span></a><p>Vue 前端、Python REST API、SQLite 索引与缓存实践，配套单元及页面验证。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/hw-design-kit" target="_blank" rel="noopener noreferrer">hw-design-kit <span class="cn">· 硬件设计与验证工具</span> <span class="out">↗</span></a><p>电源、信号链、接口计算、BOM、评审清单与测试报告辅助工具。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/mbd-toolchain-lab" target="_blank" rel="noopener noreferrer">mbd-toolchain-lab <span class="cn">· 基于模型的开发工具链</span> <span class="out">↗</span></a><p>框图建模、定步长仿真、C 代码生成与一致性检查（以 SOC 与电源环路为示例）。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/ops-automation-lab" target="_blank" rel="noopener noreferrer">ops-automation-lab <span class="cn">· 运维自动化实验</span> <span class="out">↗</span></a><p>采集、告警、健康检查、应急预案、故障演练与滚动发布工具（实验环境）。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/scpi-instrument-lab" target="_blank" rel="noopener noreferrer">scpi-instrument-lab <span class="cn">· SCPI 仪器程控框架</span> <span class="out">↗</span></a><p>命令解析、会话、设备封装与测量脚本，含 Python 与 C# 两条路径（模拟测试）。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/sds-lite-lab" target="_blank" rel="noopener noreferrer">sds-lite-lab <span class="cn">· 软件定义存储机制原型</span> <span class="out">↗</span></a><p>C++ 纠删码、一致性哈希、WAL / CRC、写时复制与快照实践（未在真实集群部署）。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/support-ticket-loop" target="_blank" rel="noopener noreferrer">support-ticket-loop <span class="cn">· 工单闭环与知识复用</span> <span class="out">↗</span></a><p>客户与工单管理、归类、TF-IDF 检索与周报工具（构造演示工单）。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/upper-computer-control-lab" target="_blank" rel="noopener noreferrer">upper-computer-control-lab <span class="cn">· C# 上位机控制实验</span> <span class="out">↗</span></a><p>Modbus RTU、轮询、重试降级、点位统计与 WPF / MVVM 控制界面实践。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/upper-computer-lab" target="_blank" rel="noopener noreferrer">upper-computer-lab <span class="cn">· C# 上位机实验（另一入口）</span> <span class="out">↗</span></a><p>另一个 .NET / WPF 上位机入口，围绕 Modbus、调度与统计（同方向，不重复计数）。</p></li>
+      </ul>
+    </div>
+
+    <div class="cat" id="cat-client">
+      <h3>客户端与网页 <span class="count">6</span></h3>
+      <p class="catnote">Web、移动端与静态站点实践</p>
+      <ul class="repogrid">
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/acca-master-xinyu" target="_blank" rel="noopener noreferrer">acca-master-xinyu <span class="cn">· ACCA 学习管理系统</span> <span class="out">↗</span></a><p>知识内容、题库、答题记录、模拟考试与管理功能的 Web 学习软件（TypeScript）。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/dp-launcher" target="_blank" rel="noopener noreferrer">dp-launcher <span class="cn">· Android 投影仪桌面</span> <span class="out">↗</span></a><p>Kotlin / XML 客户端界面实践，围绕投影仪 / 电视桌面与 RecyclerView 组织交互。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/later-chapters" target="_blank" rel="noopener noreferrer">later-chapters <span class="cn">· 静态网页内容展示</span> <span class="out">↗</span></a><p>HTML 静态网页项目入口（技术定位，不含个人叙事内容）。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/live-room-ios" target="_blank" rel="noopener noreferrer">live-room-ios <span class="cn">· SwiftUI 直播间互动客户端</span> <span class="out">↗</span></a><p>SwiftUI / MVVM、事件流、actor 存储与单元测试实践（非线上直播业务）。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/meminehobe24435-cmyk.github.io" target="_blank" rel="noopener noreferrer">meminehobe24435-cmyk.github.io <span class="cn">· 个人项目导航网站（本页）</span> <span class="out">↗</span></a><p>本求职主页的源码仓库：零依赖单文件静态站点（HTML / CSS，无构建、无框架）。</p></li>
+        <li><a class="rn" href="https://github.com/meminehobe24435-cmyk/road-c87svqpu" target="_blank" rel="noopener noreferrer">road-c87svqpu <span class="cn">· HTML 网页项目</span> <span class="out">↗</span></a><p>公开 HTML 仓库入口（公开简介为空，不推断其业务用途与完成度）。</p></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 奖项与证书 ============ -->
+<section class="sec" id="awards">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Awards &amp; Certificates</p>
+      <h2>竞赛奖项与证书</h2>
+    </div>
+
+    <div class="grid2">
+      <article class="award top">
+        <span class="lvl">国家级竞赛一等奖</span>
+        <h3>全国大学生嵌入式芯片与系统设计竞赛 · FPGA 创新设计赛道 决赛一等奖</h3>
+        <p>国家级<strong>竞赛</strong>一等奖（国家级竞赛奖项，非奖学金类荣誉）。对应项目：双目视觉处理系统（团队作品）。</p>
+      </article>
+      <article class="award">
+        <span class="lvl">湖北省一等奖 · 晋级国赛</span>
+        <h3>全国大学生电子设计竞赛 TI 杯</h3>
+        <p>省级一等奖并晋级全国赛。</p>
+      </article>
+      <article class="award">
+        <span class="lvl">国家优胜奖 · 晋级国赛</span>
+        <h3>全国大学生电子设计竞赛 信息科技前沿专题赛（瑞萨杯）</h3>
+        <p>国家级优胜奖并晋级全国赛。</p>
+      </article>
+      <article class="award">
+        <span class="lvl">中部赛区三等奖</span>
+        <h3>全国大学生嵌入式芯片与系统设计竞赛 · 芯片应用赛道</h3>
+        <p>对应项目：基于 CH585 的三模无线鼠标。</p>
+      </article>
+      <article class="award">
+        <span class="lvl">二等奖 · 人工智能赛道</span>
+        <h3>首届「杉达杯」产教融合创新创业大赛全国邀请赛</h3>
+        <p>人工智能赛道二等奖。</p>
+      </article>
+      <article class="award">
+        <span class="lvl">湖北省三等奖</span>
+        <h3>蓝桥杯 · 单片机赛道</h3>
+        <p>省级三等奖。</p>
+      </article>
+      <article class="award">
+        <span class="lvl">湖北省三等奖</span>
+        <h3>全国大学生数学建模竞赛</h3>
+        <p>省级三等奖。</p>
+      </article>
+      <article class="award">
+        <span class="lvl">一等奖 / 二等奖</span>
+        <h3>全国大学生电子设计竞赛 校赛</h3>
+        <p>2024 年一等奖、2025 年二等奖。</p>
+      </article>
+    </div>
+
+    <div class="card" style="margin-top:16px">
+      <h3>学术成果</h3>
+      <p>以第一作者在《Mathematical Modeling and Algorithm Application》发表论文一篇（无人机烟雾干扰时空动态几何遮挡模型）。</p>
+      <p class="muted">说明：期刊收录级别与索引情况未在本页声明，如需请以刊物正式信息为准。</p>
+    </div>
+
+    <div class="sec-head" style="margin-top:30px">
+      <p class="eyebrow">Certificates</p>
+      <h2>证书</h2>
+    </div>
+    <div class="certs">
+      <div class="cert"><b>CET-4</b><span>大学英语四级（已通过）</span></div>
+      <div class="cert"><b>高压电工证</b><span>电工特种作业操作证</span></div>
+      <div class="cert"><b>C1 驾驶证</b><span>机动车驾驶证 C1</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 联系方式 ============ -->
+<section class="sec" id="contact">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Contact</p>
+      <h2>联系方式</h2>
+      <p>欢迎就 2027届校招正式岗位沟通，可提供成绩单、证书、实习证明与项目原始材料</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-item"><span>邮箱</span><a class="purl" href="mailto:meminehobe24435@gmail.com">meminehobe24435@gmail.com</a></div>
+      <div class="contact-item"><span>电话</span><a class="purl" href="tel:15629297138">15629297138</a></div>
+      <div class="contact-item"><span>微信</span><strong>YyqKyothal</strong></div>
+      <div class="contact-item"><span>GitHub</span><a class="purl" href="https://github.com/meminehobe24435-cmyk" target="_blank" rel="noopener noreferrer">github.com/meminehobe24435-cmyk</a></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============ 页脚 ============ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <h2>尤译庆 · 2027届本科应届生</h2>
+    <p style="margin:0 0 4px">嵌入式软件 / 固件开发方向 ｜ GitHub 主页：
+      <a class="purl" href="https://github.com/meminehobe24435-cmyk" target="_blank" rel="noopener noreferrer">github.com/meminehobe24435-cmyk</a>
+    </p>
+    <p style="margin:0">全部 61 个公开仓库按方向导航：</p>
+
+    <h3>① 嵌入式与设备通信（14）</h3>
+    <ul class="idxlist">
+      <li><a href="https://github.com/meminehobe24435-cmyk/-_MicoAir743v2_ArduPilot" target="_blank" rel="noopener noreferrer">-_MicoAir743v2_ArduPilot</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/ac632n-dev-tools" target="_blank" rel="noopener noreferrer">ac632n-dev-tools</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/automotive-can-uds-lab" target="_blank" rel="noopener noreferrer">automotive-can-uds-lab</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/display-firmware-lab" target="_blank" rel="noopener noreferrer">display-firmware-lab</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/esp-recorder" target="_blank" rel="noopener noreferrer">esp-recorder</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/esp32-wifi-recorder-v1.2" target="_blank" rel="noopener noreferrer">esp32-wifi-recorder-v1.2</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/iot-mqtt-ota-lab" target="_blank" rel="noopener noreferrer">iot-mqtt-ota-lab</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/linux-driver-lab" target="_blank" rel="noopener noreferrer">linux-driver-lab</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/mavlink-avionics-lab" target="_blank" rel="noopener noreferrer">mavlink-avionics-lab</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/motor-ecu-base-sw" target="_blank" rel="noopener noreferrer">motor-ecu-base-sw</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/netcam-app-lab" target="_blank" rel="noopener noreferrer">netcam-app-lab</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/riscv-firmware-lab" target="_blank" rel="noopener noreferrer">riscv-firmware-lab</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/serial-data-gateway" target="_blank" rel="noopener noreferrer">serial-data-gateway</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/uav-car-adhesion-platform" target="_blank" rel="noopener noreferrer">uav-car-adhesion-platform</a></li>
+    </ul>
+
+    <h3>② 机器人与运动控制（5）</h3>
+    <ul class="idxlist">
+      <li><a href="https://github.com/meminehobe24435-cmyk/five-axis-cnc-lab" target="_blank" rel="noopener noreferrer">five-axis-cnc-lab</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/fleet-dispatch-lab" target="_blank" rel="noopener noreferrer">fleet-dispatch-lab</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/robot-motion-control" target="_blank" rel="noopener noreferrer">robot-motion-control</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/ros2-patrol-robot" target="_blank" rel="noopener noreferrer">ros2-patrol-robot</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/second-gen-tea-picking-robot" target="_blank" rel="noopener noreferrer">second-gen-tea-picking-robot</a></li>
+    </ul>
+
+    <h3>③ 电源与电机控制（6）</h3>
+    <ul class="idxlist">
+      <li><a href="https://github.com/meminehobe24435-cmyk/digital-power-loop-sim" target="_blank" rel="noopener noreferrer">digital-power-loop-sim</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/foc-motor-control-lab" target="_blank" rel="noopener noreferrer">foc-motor-control-lab</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/inverter-grid-parallel-lab" target="_blank" rel="noopener noreferrer">inverter-grid-parallel-lab</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/offline-power-lab" target="_blank" rel="noopener noreferrer">offline-power-lab</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/usb-pd-powerbank-lab" target="_blank" rel="noopener noreferrer">usb-pd-powerbank-lab</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/wind-farm-planning-lab" target="_blank" rel="noopener noreferrer">wind-farm-planning-lab</a></li>
+    </ul>
+
+    <h3>④ 视觉与 RTL（9）</h3>
+    <ul class="idxlist">
+      <li><a href="https://github.com/meminehobe24435-cmyk/camera-link-lab" target="_blank" rel="noopener noreferrer">camera-link-lab</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/ir-core-lab" target="_blank" rel="noopener noreferrer">ir-core-lab</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/isp-iq-lab" target="_blank" rel="noopener noreferrer">isp-iq-lab</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/mixed-signal-rtl-lab" target="_blank" rel="noopener noreferrer">mixed-signal-rtl-lab</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/raster-pipeline-lab" target="_blank" rel="noopener noreferrer">raster-pipeline-lab</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/rtl-ddc-lab" target="_blank" rel="noopener noreferrer">rtl-ddc-lab</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/rtl-ip-lab" target="_blank" rel="noopener noreferrer">rtl-ip-lab</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/stereo-vision-lab" target="_blank" rel="noopener noreferrer">stereo-vision-lab</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/zynq-stereo-depth-gimbal" target="_blank" rel="noopener noreferrer">zynq-stereo-depth-gimbal</a></li>
+    </ul>
+
+    <h3>⑤ AI 与数据分析（8）</h3>
+    <ul class="idxlist">
+      <li><a href="https://github.com/meminehobe24435-cmyk/agent-runtime-lab" target="_blank" rel="noopener noreferrer">agent-runtime-lab</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/careerforge-ai" target="_blank" rel="noopener noreferrer">careerforge-ai</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/embodied-ai-sdk-lab" target="_blank" rel="noopener noreferrer">embodied-ai-sdk-lab</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/inspection-ai-lab" target="_blank" rel="noopener noreferrer">inspection-ai-lab</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/manufacturing-ai-demo" target="_blank" rel="noopener noreferrer">manufacturing-ai-demo</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/quality-analytics-lab" target="_blank" rel="noopener noreferrer">quality-analytics-lab</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/rl-alignment-lab" target="_blank" rel="noopener noreferrer">rl-alignment-lab</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/world-model-lab" target="_blank" rel="noopener noreferrer">world-model-lab</a></li>
+    </ul>
+
+    <h3>⑥ 后台、测试与工程工具（13）</h3>
+    <ul class="idxlist">
+      <li><a href="https://github.com/meminehobe24435-cmyk/android-device-testkit" target="_blank" rel="noopener noreferrer">android-device-testkit</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/auv-comm-backend" target="_blank" rel="noopener noreferrer">auv-comm-backend</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/backend-service-kit" target="_blank" rel="noopener noreferrer">backend-service-kit</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/dimension-metrology-lab" target="_blank" rel="noopener noreferrer">dimension-metrology-lab</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/fullstack-lab" target="_blank" rel="noopener noreferrer">fullstack-lab</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/hw-design-kit" target="_blank" rel="noopener noreferrer">hw-design-kit</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/mbd-toolchain-lab" target="_blank" rel="noopener noreferrer">mbd-toolchain-lab</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/ops-automation-lab" target="_blank" rel="noopener noreferrer">ops-automation-lab</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/scpi-instrument-lab" target="_blank" rel="noopener noreferrer">scpi-instrument-lab</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/sds-lite-lab" target="_blank" rel="noopener noreferrer">sds-lite-lab</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/support-ticket-loop" target="_blank" rel="noopener noreferrer">support-ticket-loop</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/upper-computer-control-lab" target="_blank" rel="noopener noreferrer">upper-computer-control-lab</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/upper-computer-lab" target="_blank" rel="noopener noreferrer">upper-computer-lab</a></li>
+    </ul>
+
+    <h3>⑦ 客户端与网页（6）</h3>
+    <ul class="idxlist">
+      <li><a href="https://github.com/meminehobe24435-cmyk/acca-master-xinyu" target="_blank" rel="noopener noreferrer">acca-master-xinyu</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/dp-launcher" target="_blank" rel="noopener noreferrer">dp-launcher</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/later-chapters" target="_blank" rel="noopener noreferrer">later-chapters</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/live-room-ios" target="_blank" rel="noopener noreferrer">live-room-ios</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/meminehobe24435-cmyk.github.io" target="_blank" rel="noopener noreferrer">meminehobe24435-cmyk.github.io</a></li>
+      <li><a href="https://github.com/meminehobe24435-cmyk/road-c87svqpu" target="_blank" rel="noopener noreferrer">road-c87svqpu</a></li>
+    </ul>
+
+    <div class="foot-meta">
+      <span>最后更新日期：2026-10-13</span>
+      <span>本页为单文件静态页面，无外部依赖（样式内联，不加载任何 CDN）</span>
+      <span>页面内所有项目边界与数据口径均以对应仓库说明与原始记录为准</span>
+    </div>
+  </div>
+</footer>
+</body>
 </html>
